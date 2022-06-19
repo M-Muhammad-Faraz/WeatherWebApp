@@ -24,9 +24,10 @@ app.controller("app-controller", ($scope, $http) => {
 
 const openHamburger = () => {
   const menu = document.querySelector(".hamburgermenu");
+
   menu.style.right = "0";
 };
 const closeHamburger = () => {
   const menu = document.querySelector(".hamburgermenu");
-  menu.style.right = "992px";
+  menu.style.right = "-100vw";
 };
