@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WeatherMe</title>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
       integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
@@ -33,11 +33,83 @@
       <div class="overlay"></div>
       <div>
         <div class="row g-0">
-          <div class="col-8 cntr">
+          <div class="col-xl-8 col-lg-6 cntr">
             <div class="temp py-5 d-flex flex-column justify-content-between">
-              <nav class="navi">
-                <span class="lnr lnr-cloud-check"></span> <span>Weather</span>
+              <nav class="navbar navi">
+                <div>
+                  <span class="lnr lnr-cloud-check"></span> <span>Weather</span>
+                </div>
+                <div class="hamburger" onclick="openHamburger()">
+                  <span class="lnr lnr-menu"></span>
+                </div>
               </nav>
+              <div class="sidebar hamburgermenu">
+                <div
+                  class="navi hamburger align-self-end"
+                  onclick="closeHamburger()"
+                >
+                  <span class="lnr lnr-cross"></span>
+                </div>
+                <div>
+                  <h3>Search</h3>
+                  <div class="search">
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Location"
+                        ng-model="value"
+                      />
+                    </div>
+                    <button ng-click="getWeather(value)">
+                      <span class="lnr lnr-magnifier"></span>
+                    </button>
+                  </div>
+                </div>
+                <hr />
+                <div class="weatherDetails">
+                  <h3>Weather Details</h3>
+                  <div class="d-flex justify-content-between my-3">
+                    <div>Wind</div>
+                    <div>{{weatherList[0].wind.speed}}km/hr</div>
+                  </div>
+                  <div class="d-flex justify-content-between my-3">
+                    <div>Humidity</div>
+                    <div>{{weatherList[0].main.humidity}}%</div>
+                  </div>
+                  <div class="d-flex justify-content-between my-3">
+                    <div>Weather Description</div>
+                    <div class="capital">
+                      {{weatherList[0].weather[0].description}}
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="nextDays">
+                  <h3>Hourly</h3>
+                  <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" ng-repeat="item in weatherList">
+                        <div ng-if="item.weather[0].main=='Rain'">
+                          <img src="./Assets/icons/rainy.svg" alt="" />
+                        </div>
+                        <div ng-if="item.weather[0].main=='Clouds'">
+                          <img src="./Assets/icons/cloud.svg" alt="" />
+                        </div>
+                        <div ng-if="item.weather[0].main=='Clear'">
+                          <img src="./Assets/icons/sun.svg" alt="" />
+                        </div>
+                        <div>{{(item.main.temp - 32) * 5/9 | ceil}}°</div>
+                        <div>{{item.dt_txt.split(" ")[0]}}</div>
+                        <div class="capital">
+                          {{item.weather[0].description}}
+                        </div>
+                        <div>{{item.dt_txt.split(" ")[1]}}</div>
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                </div>
+              </div>
               <div class="Temprature">
                 <div class="tempr me-3">
                   {{ (weatherList[0].main.temp - 32) * 5/9 | ceil}}°C
@@ -63,7 +135,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4 sidebar">
+          <div class="visibliti col-xl-4 col-lg-6 sidebar">
             <div>
               <h3>Search</h3>
               <div class="search">

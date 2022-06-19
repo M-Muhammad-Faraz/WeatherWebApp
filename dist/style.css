@@ -127,3 +127,47 @@ img.overlayimg {
 .capital {
   text-transform: capitalize;
 }
+.visibliti {
+  display: flex;
+}
+.hamburger {
+  display: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+}
+.hamburger:hover {
+  background-color: rgba(255, 170, 127, 0.353);
+}
+.hamburgermenu {
+  display: none;
+  transition: right 250ms ease;
+  position: absolute;
+  top: 0;
+  right: 992px;
+  width: 100vw;
+}
+
+@media only screen and (max-width: 1200px) {
+  .cntr {
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .visibliti {
+    display: none;
+  }
+  .hamburgermenu {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}

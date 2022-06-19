@@ -1,0 +1,31 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather app for Checking weather of your city completely Responsive",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-Muhammad-Faraz/WeatherWebApp.git"
+  },
+  "keywords": [
+    "weather",
+    "weatherapp",
+    "webapp",
+    "angularjs",
+    "js",
+    "html",
+    "css"
+  ],
+  "author": "Zax (Mian Muhammad Faraz)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M-Muhammad-Faraz/WeatherWebApp/issues"
+  },
+  "homepage": "https://github.com/M-Muhammad-Faraz/WeatherWebApp#readme",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}

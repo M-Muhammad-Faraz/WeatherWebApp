@@ -1,17 +1,3 @@
-// var hello;
-
-// const obj = { data: [] };
-
-// async function getWeather(url) {
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   console.log(data.list);
-// }
-
-// getWeather(
-//   "https://api.openweathermap.org/data/2.5/forecast?q=islamabad&appid=96dea4748c706dbd239acaf5fccee21a&units=imperial&mode=json"
-// );
-
 const app = angular.module("my-app", []);
 app.filter("ceil", function () {
   return function (input) {
@@ -35,7 +21,12 @@ app.controller("app-controller", ($scope, $http) => {
 
   $scope.getWeather();
 });
-// const web = document.querySelector(".main");
 
-// web.style.background = "url(./Assets/Cloudy.jpg)";
-// console.log(app);
+const openHamburger = () => {
+  const menu = document.querySelector(".hamburgermenu");
+  menu.style.right = "0";
+};
+const closeHamburger = () => {
+  const menu = document.querySelector(".hamburgermenu");
+  menu.style.right = "992px";
+};
