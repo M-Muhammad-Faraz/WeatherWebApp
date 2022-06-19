@@ -1,10 +1,6 @@
 * {
   color: white;
 }
-body {
-  overflow: hidden;
-  position: relative;
-}
 .main {
   position: relative;
   max-width: 100vw;
@@ -145,15 +141,21 @@ img.overlayimg {
 .hamburger:hover {
   background-color: rgba(255, 170, 127, 0.353);
 }
-.hamburgermenu {
-  display: none;
-  transition: right 250ms ease;
-  position: absolute;
-  top: 0;
-  right: -100vw;
-  width: 100vw;
+
+#offcanvasExample {
+  background: rgba(255, 255, 255, 0.097);
+  /* border-radius: 16px; */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
 }
 
+@media only screen and (max-width: 992) {
+  #offcanvasExample {
+    display: none;
+  }
+}
 @media only screen and (max-width: 1200px) {
   .cntr {
     max-width: 100%;
@@ -171,11 +173,18 @@ img.overlayimg {
   .visibliti {
     display: none;
   }
-  .hamburgermenu {
-    display: flex;
+  .sidebar {
+    background: transparent;
+    /* border-radius: 16px; */
+    box-shadow: none;
+    backdrop-filter: blur(5px);
   }
   .hamburger {
     display: flex;
+    text-decoration: none;
+  }
+  .search input {
+    width: 200px;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -200,10 +209,5 @@ img.overlayimg {
 @media only screen and (max-width: 375px) {
   .Temprature {
     flex-direction: column;
-  }
-  .search input {
-    width: 200px;
-  }
-  .search button {
   }
 }
