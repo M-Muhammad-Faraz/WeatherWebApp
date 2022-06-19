@@ -2,7 +2,7 @@
   color: white;
 }
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .main {
   position: relative;
